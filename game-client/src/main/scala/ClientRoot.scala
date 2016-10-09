@@ -1,14 +1,10 @@
-package client
-
 import scalafx.application.JFXApp
 import scalafx.application.JFXApp.PrimaryStage
 import scalafx.scene.Scene
 
-object TicTacToeClient extends JFXApp {
-  val TITLE = "TicTacToeFX"
-
+object ClientRoot extends JFXApp {
   stage = new PrimaryStage {
-    title = TITLE
+    title = "TicTacToeFX"
 
     scene = new Scene(800, 600) {
       // TODO
