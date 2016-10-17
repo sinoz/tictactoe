@@ -1,5 +1,6 @@
 package tictactoe.gdx
 
+import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.{ApplicationListener, Gdx, InputMultiplexer}
 import tictactoe.gdx.scene.SceneRoot
 import tictactoe.gdx.scene.game.{GameClassification, GameScene}
@@ -39,6 +40,12 @@ object GdxCanvas extends ApplicationListener {
     scenes.pause()
   }
 
-  override def render(): Unit =
+  /** Clears the canvas to prepare for the next frame drawing. */
+  def glClearCanvas(): Unit =
+    Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT)
+
+  override def render(): Unit = {
+    glClearCanvas()
     scenes.render()
+  }
 }
