@@ -1,5 +1,5 @@
 # TicTacToe
-A TicTacToe game written in Scala and uses the LibGDX and Akka frameworks.
+An online multiplayer TicTacToe game written in Scala.
 
 ### Requirements
 The project is compiled with Java 8 and uses SBT for dependency management.
