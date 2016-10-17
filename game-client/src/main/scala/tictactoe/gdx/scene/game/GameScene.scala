@@ -14,8 +14,8 @@ final class GameScene(stage: Stage) extends Scene {
   private val skinPath = new File(classLoader.getResource("uiskin.json").getFile)
   private val skin = new Skin(new FileHandle(skinPath))
 
-  val gameWindow = new GameWindow(skin)
-  stage.addActor(gameWindow)
+  val background = new GameBackground(skin)
+  stage.addActor(background)
 
   override def resize(width: Int, height: Int): Unit = {
     // TODO
