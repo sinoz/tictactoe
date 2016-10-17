@@ -1,6 +1,6 @@
 package tictactoe.gdx.scene
 
-import com.badlogic.gdx.InputMultiplexer
+import com.badlogic.gdx.{Gdx, InputMultiplexer}
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.Disposable
 import com.badlogic.gdx.utils.viewport.ScreenViewport
@@ -39,32 +39,33 @@ final class SceneRoot(inputMultiplexer: InputMultiplexer) extends Disposable {
 
   /** Called when the application must be resized. */
   def resize(width: Int, height: Int): Unit = {
-    // TODO
+    current.get.resize(width, height)
   }
 
   /** Called when the application must hide its scenes from the stage. */
   def hide(): Unit = {
-    // TODO
+    current.get.hide()
   }
 
   /** Called when the application must present its scenes onto the stage. */
   def show(): Unit = {
-    // TODO
+    current.get.show()
   }
 
   /** Called when the application must put a pause onto its rendering course. */
   def pause(): Unit = {
-    // TODO
+    current.get.pause()
   }
 
   /** Called when the application must resume its rendering course. */
   def resume(): Unit = {
-    // TODO
+    current.get.resume()
   }
 
   /** Called every frame to draw the scenes. */
   def render(): Unit = {
-    // TODO
+    stage.act(Gdx.graphics.getDeltaTime)
+    stage.draw()
   }
 
   override def dispose(): Unit = {

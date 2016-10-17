@@ -2,7 +2,7 @@ package tictactoe.gdx
 
 import com.badlogic.gdx.{ApplicationListener, Gdx, InputMultiplexer}
 import tictactoe.gdx.scene.SceneRoot
-import tictactoe.gdx.scene.game.GameScene
+import tictactoe.gdx.scene.game.{GameClassification, GameScene}
 
 /** The canvas of this application that receives and flows user events to its child components. */
 object GdxCanvas extends ApplicationListener {
@@ -13,7 +13,7 @@ object GdxCanvas extends ApplicationListener {
     inputMultiplexer = new InputMultiplexer()
 
     scenes = new SceneRoot(inputMultiplexer)
-    scenes.transitionTo(GameScene)
+    scenes.transitionTo(GameClassification)
 
     Gdx.input.setInputProcessor(inputMultiplexer)
   }
