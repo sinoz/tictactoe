@@ -9,4 +9,5 @@ final class GameBackground(skin: Skin) extends Table(skin) {
 
   setBackground("default-window")
   setFillParent(true)
+  pack()
 }

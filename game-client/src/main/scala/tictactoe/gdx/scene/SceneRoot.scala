@@ -34,12 +34,19 @@ final class SceneRoot(inputMultiplexer: InputMultiplexer) extends Disposable {
       current = Some(newScene)
     }
 
+    updateViewport(Gdx.graphics.getWidth, Gdx.graphics.getHeight, centerCamera = true)
     current.get.show()
   }
 
   /** Called when the application must be resized. */
   def resize(width: Int, height: Int): Unit = {
+    updateViewport(width, height, centerCamera = true)
     current.get.resize(width, height)
+  }
+
+  /** Updates the viewport according to the given parameters. */
+  private def updateViewport(width: Int, height: Int, centerCamera: Boolean): Unit = {
+    stage.getViewport.update(width, height, centerCamera)
   }
 
   /** Called when the application must hide its scenes from the stage. */
