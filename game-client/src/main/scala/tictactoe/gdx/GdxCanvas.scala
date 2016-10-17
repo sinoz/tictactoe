@@ -21,12 +21,21 @@ object GdxCanvas extends ApplicationListener {
   override def dispose(): Unit =
     scenes.dispose()
 
-  override def pause(): Unit =
+  /** Toggles the state of the continuous rendering flag. Disabling continuous rendering can potentially
+    * save a user's resources (think of battery power). */
+  def continuousRendering(enabled: Boolean) =
+    Gdx.graphics.setContinuousRendering(enabled)
+
+  override def resume(): Unit = {
+    continuousRendering(enabled = true)
+    scenes.resume()
+  }
+
+  override def pause(): Unit = {
+    continuousRendering(enabled = false)
     scenes.pause()
+  }
 
   override def render(): Unit =
     scenes.render()
-
-  override def resume(): Unit =
-    scenes.resume()
 }
