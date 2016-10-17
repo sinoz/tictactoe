@@ -21,4 +21,10 @@ abstract class Scene extends Disposable {
 
   /** Called every frame to draw the scenes. */
   def render(): Unit
+
+  /** Returns the appropriate classification for this scene. */
+  def classification(): SceneClassification
 }
+
+/** The classification of this scene. */
+trait SceneClassification
