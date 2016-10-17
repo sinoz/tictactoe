@@ -1,6 +1,5 @@
-# TicTacToeFX
-A TicTacToe game written in Scala that utilizes ScalaFX for the graphical user interface and Akka for serversided concurrent
-processing.
+# TicTacToe
+A TicTacToe game written in Scala and uses the LibGDX and Akka frameworks.
 
 ### Requirements
 The project is compiled with Java 8 and uses SBT for dependency management.

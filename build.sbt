@@ -1,5 +1,6 @@
-name := "akka-scala-seed"
+name := "tictactoe"
 
 version := "1.0"
 
 scalaVersion := "2.11.8"
+    
