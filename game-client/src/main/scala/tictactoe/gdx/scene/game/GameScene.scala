@@ -1,18 +1,15 @@
 package tictactoe.gdx.scene.game
 
-import java.io.File
-
-import com.badlogic.gdx.files.FileHandle
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import tictactoe.gdx.assets.GameAssets
 import tictactoe.gdx.scene.{Scene, SceneRoot}
 
 /** The scene to render while in game. */
 object GameScene extends Scene {
-  // TODO clean up
-  private val classLoader = getClass.getClassLoader
-  private val skinPath = new File(classLoader.getResource("uiskin.json").getFile)
-  private val skin = new Skin(new FileHandle(skinPath))
+  /** The vast collection of graphical elements to use for the user interface widgets. */
+  private val skin = GameAssets.fetch("uiskin", classOf[Skin])
 
+  /** Creates and adds the background to the stage. */
   val background = new GameBackground(skin)
   SceneRoot.stage.addActor(background)
 
@@ -21,7 +18,7 @@ object GameScene extends Scene {
   }
 
   override def hide(): Unit = {
-    // TODO
+    background.setVisible(false)
   }
 
   override def pause(): Unit = {
@@ -33,7 +30,7 @@ object GameScene extends Scene {
   }
 
   override def show(): Unit = {
-    // TODO
+    background.setVisible(true)
   }
 
   override def resume(): Unit = {
@@ -41,6 +38,6 @@ object GameScene extends Scene {
   }
 
   override def dispose(): Unit = {
-    // TODO
+    skin.dispose()
   }
 }

@@ -2,6 +2,7 @@ package tictactoe.gdx
 
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.{ApplicationListener, Gdx, InputMultiplexer}
+import tictactoe.gdx.assets.GameAssets
 import tictactoe.gdx.scene.SceneRoot
 
 /** The canvas of this application that receives and flows user events to its child components. */
@@ -15,8 +16,10 @@ object GdxCanvas extends ApplicationListener {
   override def resize(width: Int, height: Int): Unit =
     SceneRoot.resize(width, height)
 
-  override def dispose(): Unit =
+  override def dispose(): Unit = {
     SceneRoot.dispose()
+    GameAssets.dispose()
+  }
 
   /** Toggles the state of the continuous rendering flag. Disabling continuous rendering can potentially
     * save a user's resources (think of battery power). */
