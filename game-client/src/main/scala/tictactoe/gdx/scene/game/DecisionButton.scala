@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent
 
 /** A single decision on the grid. */
-final class DecisionButton(skin: Skin) extends TextButton("", skin) {
+private[game] final class DecisionButton(skin: Skin) extends TextButton("", skin) {
   /** The text display to mutate to once selected. */
   val PleaseWaitText = "Processing..."
 

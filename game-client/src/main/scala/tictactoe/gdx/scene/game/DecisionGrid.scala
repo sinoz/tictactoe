@@ -3,7 +3,7 @@ package tictactoe.gdx.scene.game
 import com.badlogic.gdx.scenes.scene2d.ui.{Skin, Table}
 
 /** A 9x9 grid of decision buttons. */
-final class DecisionGrid(skin: Skin) extends Table {
+private[game] final class DecisionGrid(skin: Skin) extends Table {
   val ColumnsPerRow = 3
 
   (1 until 10) foreach { index =>
