@@ -3,7 +3,7 @@ package tictactoe.gdx.scene
 import com.badlogic.gdx.utils.Disposable
 
 /** A scene of drawable components that must be presented onto a stage. */
-abstract class Scene extends Disposable {
+trait Scene extends Disposable {
   /** Called when the application was resized. */
   def resize(width: Int, height: Int): Unit
 
@@ -21,10 +21,4 @@ abstract class Scene extends Disposable {
 
   /** Called every frame to draw the scenes. */
   def render(): Unit
-
-  /** Returns the appropriate classification for this scene. */
-  def classification(): SceneClassification
 }
-
-/** The classification of this scene. */
-trait SceneClassification

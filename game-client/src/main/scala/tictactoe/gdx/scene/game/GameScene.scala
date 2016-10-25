@@ -3,19 +3,18 @@ package tictactoe.gdx.scene.game
 import java.io.File
 
 import com.badlogic.gdx.files.FileHandle
-import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
-import tictactoe.gdx.scene.{Scene, SceneClassification}
+import tictactoe.gdx.scene.{Scene, SceneRoot}
 
 /** The scene to render while in game. */
-final class GameScene(stage: Stage) extends Scene {
+object GameScene extends Scene {
   // TODO clean up
   private val classLoader = getClass.getClassLoader
   private val skinPath = new File(classLoader.getResource("uiskin.json").getFile)
   private val skin = new Skin(new FileHandle(skinPath))
 
   val background = new GameBackground(skin)
-  stage.addActor(background)
+  SceneRoot.stage.addActor(background)
 
   override def resize(width: Int, height: Int): Unit = {
     // TODO
@@ -44,10 +43,4 @@ final class GameScene(stage: Stage) extends Scene {
   override def dispose(): Unit = {
     // TODO
   }
-
-  override def classification(): SceneClassification =
-    GameClassification
 }
-
-/** The classification for the game scene. */
-case object GameClassification extends SceneClassification
