@@ -14,7 +14,7 @@ object ClientLauncher extends App {
   /** The title of the game.*/
   implicit val Title = s"TicTacToe v$Release.$Build.$Patch"
 
-  /** Initializes a new GdxApp and transitions to the game scenery upon completion. */
+  /** Initializes a new GdxApp and transitions to the login scenery upon completion. */
   GdxApp {
     onCompletion => {
       SceneRoot.transitionTo(LoginScene)
