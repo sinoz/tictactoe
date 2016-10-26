@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.Disposable
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import tictactoe.gdx.GdxCanvas
-import tictactoe.gdx.scene.game.GameScene
 
 /** Manages all of the scenes. */
 object SceneRoot extends Disposable {
@@ -35,8 +34,11 @@ object SceneRoot extends Disposable {
 
   /** Called when the application must be resized. */
   def resize(width: Int, height: Int): Unit = {
+    if (current.isDefined) {
+      current.get.resize(width, height)
+    }
+
     updateViewport(width, height, centerCamera = true)
-    current.get.resize(width, height)
   }
 
   /** Updates the viewport according to the given parameters. */
@@ -46,26 +48,38 @@ object SceneRoot extends Disposable {
 
   /** Called when the application must hide its scenes from the stage. */
   def hide(): Unit = {
-    current.get.hide()
+    if (current.isDefined) {
+      current.get.hide()
+    }
   }
 
   /** Called when the application must present its scenes onto the stage. */
   def show(): Unit = {
-    current.get.show()
+    if (current.isDefined) {
+      current.get.show()
+    }
   }
 
   /** Called when the application must put a pause onto its rendering course. */
   def pause(): Unit = {
-    current.get.pause()
+    if (current.isDefined) {
+      current.get.pause()
+    }
   }
 
   /** Called when the application must resume its rendering course. */
   def resume(): Unit = {
-    current.get.resume()
+    if (current.isDefined) {
+      current.get.resume()
+    }
   }
 
   /** Called every frame to draw the scenes. */
   def render(): Unit = {
+    if (current.isDefined) {
+      current.get.render()
+    }
+
     stage.act(Gdx.graphics.getDeltaTime)
     stage.draw()
   }
@@ -74,7 +88,6 @@ object SceneRoot extends Disposable {
     stage.dispose()
   }
 
-  transitionTo(GameScene)
   GdxCanvas.inputMultiplexer.addProcessor(SceneRoot.stage)
 }
 
