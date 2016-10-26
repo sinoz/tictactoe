@@ -2,6 +2,11 @@ package tictactoe.gdx.scene
 
 import com.badlogic.gdx.utils.Disposable
 
+/** A companion object for the Scene trait. */
+object Scene {
+  def activate(scene: Scene): Unit = SceneRoot.transitionTo(scene)
+}
+
 /** A scene of drawable components that must be presented onto a stage. */
 trait Scene extends Disposable {
   /** Called when the application was resized. */
