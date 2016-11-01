@@ -8,6 +8,7 @@ libraryDependencies ++= Seq(
   "com.badlogicgames.gdx" % "gdx" % "1.9.4",
   "com.badlogicgames.gdx" % "gdx-platform" % "1.9.4" classifier("natives-desktop"),
   "com.badlogicgames.gdx" % "gdx-backend-lwjgl" % "1.9.4",
-  "org.scalatest" % "scalatest_2.11" % "3.0.1-SNAP1"  % "test"
+  "org.scalatest" % "scalatest_2.11" % "3.0.1-SNAP1"  % "test",
+  "io.netty" % "netty-all" % "4.1.6.Final"
 )
     

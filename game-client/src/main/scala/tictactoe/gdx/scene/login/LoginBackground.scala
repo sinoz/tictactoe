@@ -8,7 +8,7 @@ private[login] final class LoginBackground(implicit skin: Skin) extends Table(sk
 
   /** The login button to enter the game and the field reset/cancellation
     * button to reset the input fields. */
-  val loginBtn = new LoginButton()
+  val loginBtn = new LoginButton(box)
   val resetBtn = new FieldResetButton(box)
 
   // add subordinate widgets
