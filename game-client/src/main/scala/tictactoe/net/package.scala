@@ -4,6 +4,7 @@ import java.net.SocketAddress
 import java.util.concurrent.atomic.AtomicReference
 
 import io.netty.bootstrap.Bootstrap
+import io.netty.buffer.ByteBuf
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.SocketChannel
 import io.netty.channel.socket.nio.NioSocketChannel
@@ -38,6 +39,13 @@ package object net {
     })
 
     case None => throw new Exception()
+  }
+
+  implicit class WriteCString(buffer: ByteBuf) {
+    def writeCString(in: String) = {
+      in foreach { char => buffer.writeByte(char) }
+      buffer.writeByte(0)
+    }
   }
 
   /** Initializes socket channels by feeding default pipeline channel handlers. */
