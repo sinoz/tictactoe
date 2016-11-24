@@ -9,4 +9,7 @@ The project is compiled with Java 8 and uses SBT for build automation. The follo
     * Platform (natives)
     * LWJGL-Backend
   * Netty 4.1.6
-- Server (TODO)
+- Server
+  * Akka 2.4.11
+    * Actors module
+    * TestKit module
