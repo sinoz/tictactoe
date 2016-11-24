@@ -18,8 +18,11 @@ object Server extends App {
 private final class Server extends Actor with ActorLogging {
   import ServerConstants._
 
+  /** The game supervisor. */
+  val game = context actorOf(Game(), "game")
+
   /** The socket channel actor. */
-  val channel = context actorOf(ServerChannel(LocalAddr), "channel")
+  val channel = context actorOf(ServerChannel(LocalAddr, game), "channel")
 
   override def receive: Receive = {
     case message =>
